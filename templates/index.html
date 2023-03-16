@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-start">Name</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <th class="text-start">{{stock["symbol"]}}</td>
+                    <th class="text-start">{{stock["name"]}}</td>
+                    <th class="text-end">{{stock["number"]}}</td>
+                    <th class="text-end">${{stock["price"]}}</td>
+                    <th class="text-end">${{stock["total"]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                <td class="border-0 w-bold text-end">${{cash}}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+                <td class="border-0 w-bold text-end">${{TOTAL}}</td>
+            </tr>
+        </tfoot>
+{% endblock %}
